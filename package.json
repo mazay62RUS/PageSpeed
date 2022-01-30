@@ -1,0 +1,16 @@
+{
+  "name": "site-benchmark",
+  "version": "0.0.0",
+  "description": "SiteBenchmark",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "dom-parser": "^0.1.6",
+    "express": "^4.17.2",
+    "pg": "^8.7.1",
+    "request": "^2.88.2",
+    "sync-request": "^6.1.0"
+  }
+}

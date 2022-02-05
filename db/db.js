@@ -21,7 +21,7 @@ const getBenchmarks = (url) => {
         FROM    pagespeed
         WHERE 1=1
         AND url = '${url}'
-        ORDER BY timestamp DESC
+        ORDER BY timestamp ASC
         LIMIT 1
         ;
     `

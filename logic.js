@@ -9,10 +9,23 @@ const db = require('./db/db');
 
 client.connect()
 
+/**
+* @description просто главная функция)
+* @param   {string} site - url сайта
+* @param   {string} responceJson - ссылка на responce
+*/
 const main = (site, responceJson) => {
     checkResultForOneDay(site, db.getBenchmarks(site), responceJson)
 }
 
+/**
+* @description Получаем последний бенчмарк по полученному url.
+* Если последний бенчмарк сделан больше 24 часов назад, то выполняем getBenchmarkByUrl(),
+* Иначе отправляем полученный результат из БД
+* @param {string} site - url адрес
+* @param {string} query - строка с SQL запросом
+* @param {string} responceJson - ссылка на responce
+*/
 const checkResultForOneDay = async (site, query, responceJson) => {
 
     try {
@@ -40,6 +53,11 @@ const checkResultForOneDay = async (site, query, responceJson) => {
 
 }
 
+/**
+* @description Производим скорость загрузки страницы и добавляем результат в БД 
+* @param {string} url - url адрес
+* @param {string} responceJson - ссылка на responce
+*/
 const getBenchmarkByUrl = async (url, responceJson) => {
     const responce = request('GET', `http://${url}`)
     const body = responce.getBody('utf-8')

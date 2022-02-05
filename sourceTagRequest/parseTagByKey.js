@@ -1,3 +1,11 @@
+/**
+* @description преобразуем массив одноименных тегов в
+* массив ссылок
+* @param   {string} key - по каким атрибутам тега производим отбор
+* @param   {Array}  arr - массив одноименных тегов
+* @param   {string} site - url сайта
+* @returns {Array}  возвращаем массив ссылок
+*/
 const parseTagByKey = (key, arr, site) => {
 
     let resultArr = new Array();

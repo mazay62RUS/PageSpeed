@@ -4,6 +4,12 @@ const images = require('./images')
 const scripts = require('./scripts') 
 const videos = require('./video')
 
+/**
+* @description Производим парсинг html кода страницы и замеряем скорость загрузки.
+* @param   {string} html - передаем html код полученный по url
+* @param   {string} site - url сайта
+* @returns {number} скорость загрузки страницы, мс
+*/
 const pageSpeed = (html, site) => {
 
     const LinksTags = cssLinks.cssLinksParse(html, site)

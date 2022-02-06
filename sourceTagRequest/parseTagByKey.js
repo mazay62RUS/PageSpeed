@@ -10,7 +10,7 @@ const parser = new DomParser();
 * @returns {Array}  возвращаем массив ссылок
 */
 const parseTagByKey = (html, site, tag) => {
-
+    
     const dom = parser.parseFromString(html);
     const tags = dom.getElementsByTagName(tag);
 
@@ -41,10 +41,10 @@ const parseTagByKey = (html, site, tag) => {
 * @returns {string}  загружаемый атрибут тега
 */
 const findedKeyByTag = (tag) => {
-    if ( tag == 'link' ) return 'href'
-    if ( tag == 'script' ) return 'src'
+    if ( tag == 'link'  ) return 'href'
+    if ( tag == 'script') return 'src'
     if ( tag == 'video' ) return 'src'
-    if ( tag == 'img' ) return 'src'
+    if ( tag == 'img'   ) return 'src'
 }
 
 module.exports = { parseTagByKey }

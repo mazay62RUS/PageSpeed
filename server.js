@@ -7,14 +7,16 @@ const logic = require('./logic')
 const PORT = 1337;
 
 app.get('/sites', (req, res) => {
-    const site = req.query.search;
-    if ( site.includes('.') ) {
+    let site = req.query.search.trim();
+    site = site.trimLeft();
+    if ( site.includes('.') && site[0] !== '.' && site[site.length-1] !== '.') {
         logic.main(site, res);
+        console.log('normal url')
     } else {
         console.log(`${site} bad url`)
         res.json(`${site} bad url`)
     }
-})
+});
 
 app.use( (req, res, next ) => {
     console.log(`${req.url} is not found`)

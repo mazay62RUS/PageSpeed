@@ -1,8 +1,5 @@
 const request = require('sync-request');
-const cssLinks = require('./cssLinks')
-const images = require('./images')
-const scripts = require('./scripts') 
-const videos = require('./video')
+const parseTag = require('./parseTagByKey')
 
 /**
 * @description Производим парсинг html кода страницы и замеряем скорость загрузки.
@@ -12,10 +9,10 @@ const videos = require('./video')
 */
 const pageSpeed = (html, site) => {
 
-    const LinksTags = cssLinks.cssLinksParse(html, site)
-    const imgs = images.imagesSrc(html, site);
-    const scriptsSrc = scripts.parseScripts(html, site);
-    const videoSrc = videos.videoSrc(html, site);
+    const LinksTags = parseTag.parseTagByKey(html, site, 'link')
+    const imgs = parseTag.parseTagByKey(html, site, 'img')
+    const scriptsSrc = parseTag.parseTagByKey(html, site, 'script')
+    const videoSrc = parseTag.parseTagByKey(html, site, 'video')
 
     let requestsStack = new Array();
 
